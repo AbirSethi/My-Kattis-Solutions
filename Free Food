@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int CheckList(int F[],int L[],int i,int a)
+{
+    int flag=0;
+    for(int k=0;k<a;k++)
+    {
+        if(i>=F[k]&&i<=L[k])
+        {flag=1;
+        break;}
+    }
+    return flag;
+}
+int main()
+{
+    int n, FirstValue[100], LastValue[100],a=-1,b=-1,cnt=0;
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>FirstValue[++a]>>LastValue[++b];
+        for(int j=FirstValue[a];j<=LastValue[b];j++)
+        {
+            if(i==1)
+            cnt++;
+            else if(CheckList(FirstValue,LastValue,j,a)==0)
+                    cnt++;
+        }
+    }
+    cout<<cnt;
+}
